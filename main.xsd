@@ -1,0 +1,204 @@
+<?xml version = "1.0" encoding="utf-8"?>
+<xsd:schema xmlns:xsd= "http://www.w3.org/2001/XMLSchema">
+	<xsd:element name="register">
+
+		<xsd:complexType>
+			<xsd:sequence>
+
+					
+
+				
+				<xsd:element name="participant" maxOccurs="unbounded">
+			<xsd:complexType>
+
+
+
+
+				<xsd:sequence>
+					
+
+					<xsd:element name="firstName" type="xsd:token"/>
+					<xsd:element name="lastName" type="xsd:token"/>
+					<xsd:element name="email" type="xsd:token" minOccurs="1" maxOccurs="2"/>
+					
+<!-- Element Payment -->
+					<xsd:element name="payement" >
+						<xsd:complexType>
+							<xsd:simpleContent>
+							<xsd:extension base="xsd:token">
+							<xsd:attribute name="paye" type="bool"/>
+							<xsd:attribute name="devise" type="deviseType"/>
+							<xsd:attribute name="montant" type="xsd:decimal"/>	
+						</xsd:extension>
+							</xsd:simpleContent>
+						</xsd:complexType>
+					</xsd:element>
+
+<!--Element Affiliation -->
+					<xsd:element name="affiliation" >
+						<xsd:complexType>
+							<xsd:simpleContent>
+						<xsd:extension base="xsd:token">
+							<xsd:attribute name="city" type="xsd:token"/>
+							<xsd:attribute name="country" type="xsd:token"/>
+						</xsd:extension>
+						</xsd:simpleContent>
+
+						</xsd:complexType>	
+					</xsd:element>
+<!--Element Address -->
+					<xsd:element name="address" type="xsd:token"/>
+<!--Element presentation -->
+					<xsd:element name="presentation" minOccurs="0" maxOccurs="1">
+						<xsd:complexType>
+							<xsd:attribute name="date" type="xsd:token"/>
+							<xsd:attribute name="hour" type="xsd:token"/>
+						</xsd:complexType>	
+					</xsd:element>			
+<!--Element travel -->
+					<xsd:element name="travel">
+						<xsd:complexType>
+							<xsd:sequence>
+								<xsd:element name="arrival">
+									<xsd:complexType>
+										<xsd:attribute name="date" type="xsd:token"/>
+										<xsd:attribute name="hour" type="xsd:token"/>
+										<xsd:attribute name="airport" type="xsd:token"/>
+									</xsd:complexType>
+								</xsd:element>
+								<xsd:element name="departure">
+									<xsd:complexType>
+										<xsd:attribute name="date" type="xsd:token"/>
+										<xsd:attribute name="hour" type="xsd:token"/>
+										<xsd:attribute name="airport" type="xsd:token"/>
+									</xsd:complexType>
+								</xsd:element>
+
+							</xsd:sequence>
+						</xsd:complexType>
+					</xsd:element>
+<!--Element paper -->
+					
+					<xsd:element name="paper">
+						<xsd:complexType>
+							<xsd:sequence>
+								<xsd:element name="author" minOccurs="1" maxOccurs="unbounded">
+									<xsd:complexType>
+										<xsd:sequence>
+											<xsd:element name="name" type="xsd:token"/>
+											<xsd:element name="affiliation">
+												<xsd:complexType>
+													<xsd:simpleContent>
+														<xsd:extension base="xsd:token">
+													<xsd:attribute name="city" type="xsd:token"/>
+													<xsd:attribute name="country" type="xsd:token"/>
+												</xsd:extension>
+											</xsd:simpleContent>
+												</xsd:complexType>	
+											</xsd:element>
+										</xsd:sequence>
+									</xsd:complexType>	
+								</xsd:element>
+
+								<xsd:element name="title" type="xsd:token"/>
+							</xsd:sequence>
+							<xsd:attribute name="number" type="xsd:nonNegativeInteger"/>
+						</xsd:complexType>
+					</xsd:element> 
+<!--Element hotel -->
+					<xsd:element name="hotel">
+						<xsd:complexType>
+							<xsd:sequence>
+								<xsd:element name="name" type="xsd:token"/>
+								<xsd:element name="addresse" type="xsd:token"/>
+								<xsd:element name="tel" type="xsd:token"  minOccurs="1" maxOccurs="unbounded"/>
+							</xsd:sequence>
+						</xsd:complexType>
+					</xsd:element>
+<!--Element socialEvent -->
+					<xsd:element name="socialEvent" >
+						<xsd:complexType>
+							<xsd:sequence>
+								<xsd:element name="payement">
+
+									<xsd:complexType>
+										<xsd:simpleContent>
+											<xsd:extension base="xsd:token">
+										<xsd:attribute name="devise" type="deviseType"/>
+										<xsd:attribute name="montant" type="xsd:decimal"/>
+									</xsd:extension>
+								</xsd:simpleContent>
+									</xsd:complexType>
+								</xsd:element>
+
+								<xsd:element name="accopagned">
+									<xsd:complexType>
+										<xsd:sequence>
+											<xsd:element name="name" type="xsd:token"/>
+
+										</xsd:sequence>
+
+										<xsd:attribute name="accopagned" type="bool"/>		
+										<xsd:attribute name="prentship" type="xsd:token"/>	
+									</xsd:complexType>
+								</xsd:element>
+
+							</xsd:sequence>
+							<xsd:attribute name="participate" type="bool"/>
+						</xsd:complexType>
+					</xsd:element>
+
+
+
+
+
+
+
+
+					
+
+
+				</xsd:sequence>	
+				
+
+
+
+
+
+
+<!-- Attribut participant -->
+
+				<xsd:attribute name="id" type="xsd:positiveInteger" />
+				
+				<xsd:attribute name="withpaper" type="bool"/>
+		    	
+		    	<xsd:attribute name="sexe" type="xsd:token"/>
+
+		    </xsd:complexType>
+
+		
+			
+	</xsd:element>	
+
+</xsd:sequence>
+
+</xsd:complexType>
+
+</xsd:element>
+
+
+
+				<xsd:simpleType name="deviseType">
+												<xsd:restriction base="xsd:token">
+												<xsd:enumeration value="Dh"/>
+												 <xsd:enumeration value="Euro"/>
+												<xsd:enumeration value="Dollar"/>
+											</xsd:restriction>
+				</xsd:simpleType>
+				<xsd:simpleType  name="bool">
+ 			 			<xsd:restriction base="xsd:token">
+				    	<xsd:enumeration value="yes"/>
+				        <xsd:enumeration value="no"/>
+			 			</xsd:restriction>
+				</xsd:simpleType>
+</xsd:schema>

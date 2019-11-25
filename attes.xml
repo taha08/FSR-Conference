@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="attest.xsl"?>
+<register>
+
+
+
+<participant id="25" sexe="Male" withpaper="yes"><firstName>jamayca</firstName><lastName>serghini</lastName><email>serghini@gmail.com</email><payement paye="yes" devise="Dh" montant="2"/><affiliation city="" country=""/><address/><presentation date="" hour=""/><travel><arrival date="" hour="" airport=""/><departure date="" hour="" airport=""/></travel><paper number="2"><author><name/><affiliation/></author><title/></paper><hotel><name/><addresse/><tel/></hotel><socialEvent participate="yes"><payement devise="Dh" montant="2"/><accopagned accopagned="yes" prentship=""><name/></accopagned></socialEvent></participant></register>
